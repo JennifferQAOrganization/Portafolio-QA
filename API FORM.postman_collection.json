@@ -1,0 +1,1817 @@
+{
+  "info": {
+    "_postman_id": "8282ccf5-2ca6-497b-9ba5-ab9108d7e180",
+    "name": "API FORM",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53456707",
+    "_collection_link": "https://go.postman.co/collection/53456707-8282ccf5-2ca6-497b-9ba5-ab9108d7e180?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "GET FORM",
+      "item": [
+        {
+          "name": "GET FORM",
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{PASSWORD}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "apikey",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{API_URL}}/form",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "form"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET FORM filter by valid name",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "pm.test(\"Response time is less than 200ms\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+                  "});\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "pm.test(\"Body matches string\", function () {\r",
+                  "    pm.expect(pm.response.text()).to.include(\"Ana\");\r",
+                  "});\r",
+                  "pm.test(\"Your test name\", function () {\r",
+                  "    var jsonData = pm.response.json();\r",
+                  "    var name = pm.environment.get('NAMEUSER')\r",
+                  "    pm.expect(jsonData[0].name).to.eql(name);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{PASSWORD}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "apikey",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{API_URL}}/form?name=eq.{{NAMEUSER}}",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "form"
+              ],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "eq.{{NAMEUSER}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET FORM filter by valid subject",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "pm.test(\"Response time is less than 200ms\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+                  "});\r",
+                  "pm.test(\"Body matches string\", function () {\r",
+                  "    pm.expect(pm.response.text()).to.include(\"job\");\r",
+                  "});\r",
+                  "pm.test(\"Your test subject\", function () {\r",
+                  "    var jsonData = pm.response.json();\r",
+                  "    var subject = pm.environment.get('SUBJECTUSER');\r",
+                  "    pm.expect(jsonData[0].subject).to.eql(subject);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{PASSWORD}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "apikey",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{API_URL}}/form?subject=eq.{{SUBJECTUSER}}",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "form"
+              ],
+              "query": [
+                {
+                  "key": "subject",
+                  "value": "eq.{{SUBJECTUSER}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET FORM filter by valid age",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "pm.test(\"Response time is less than 200ms\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+                  "pm.test(\"Body matches string\", function () {\r",
+                  "    pm.expect(pm.response.text()).to.include(40);\r",
+                  "});\r",
+                  "});\r",
+                  "pm.test(\"Your test age\", function () {\r",
+                  "    var jsonData = pm.response.json();\r",
+                  "    var age = Number(pm.environment.get('AGEUSER'));\r",
+                  "    pm.expect(jsonData[0].age).to.eql(age);\r",
+                  "});\r",
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{PASSWORD}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "apikey",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{API_URL}}/form?age=eq.{{AGEUSER}}",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "form"
+              ],
+              "query": [
+                {
+                  "key": "age",
+                  "value": "eq.{{AGEUSER}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET FORM filter by valid email",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "pm.test(\"Response time is less than 200ms\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(10000);\r",
+                  "pm.test(\"Body matches string\", function () {\r",
+                  "    pm.expect(pm.response.text()).to.include(\"pedro@test.com\");\r",
+                  "});\r",
+                  "});\r",
+                  "pm.test(\"Your test EMAIL\", function () {\r",
+                  "    var jsonData = pm.response.json();\r",
+                  "    var email = pm.environment.get('EMAILUSER');\r",
+                  "    pm.expect(jsonData[0].email).to.eql(email);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{PASSWORD}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "apikey",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{API_URL}}/form?email=eq.{{EMAILUSER}}",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "form"
+              ],
+              "query": [
+                {
+                  "key": "email",
+                  "value": "eq.{{EMAILUSER}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET FORM GET without authentication.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"The response code is unauthorized 401\", function () {\r",
+                  "    pm.response.to.have.status(401);\r",
+                  "pm.test(\"Response time is less than 200ms\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+                  "});\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{API_URL}}/form",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "form"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET FORM with a name that does not exist.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"The response code is 400\", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "pm.test(\"Response time is less than 200ms\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+                  "});\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{PASSWORD}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "apikey",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{API_URL}}/form?name=invalido",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "form"
+              ],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "invalido"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET FORM with a subject that does not exist.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"The response code is 400\", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "pm.test(\"Response time is less than 200ms\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+                  "});\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{PASSWORD}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "apikey",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{API_URL}}/form?subject=invalido",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "form"
+              ],
+              "query": [
+                {
+                  "key": "subject",
+                  "value": "invalido"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET FORM with invalid age.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"The response code is 400\", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "pm.test(\"Response time is less than 200ms\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+                  "});\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{PASSWORD}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "apikey",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{API_URL}}/form?age=",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "form"
+              ],
+              "query": [
+                {
+                  "key": "age",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "GET FORM with email that does not exist.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"The response code is 400\", function () {\r",
+                  "pm.test(\"Response time is less than 200ms\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+                  "});\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{PASSWORD}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "apikey",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{API_URL}}/form?email=invalido",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "form"
+              ],
+              "query": [
+                {
+                  "key": "email",
+                  "value": "invalido"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "PATCH FORM",
+      "item": [
+        {
+          "name": "PATCH edit valid name.",
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{PASSWORD}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "apikey",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"test Aria\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{API_URL}}/form?id=eq.{{NAMEUSERPATCH}}",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "form"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "eq.{{NAMEUSERPATCH}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PATCH edit valid subject.",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"subject\": \"PATCH\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{API_URL}}/form?id=eq.{{NAMEUSERPATCH}}",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "form"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "eq.{{NAMEUSERPATCH}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PATCH edit valid age.",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"age\": 84\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{API_URL}}/form?id=eq.{{NAMEUSERPATCH}}",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "form"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "eq.{{NAMEUSERPATCH}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PATCH edit valid email.",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"ariatest@test.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{API_URL}}/form?id=eq.{{NAMEUSERPATCH}}",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "form"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "eq.{{NAMEUSERPATCH}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PATCH without authentication.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 401\", function () {\r",
+                  "    pm.response.to.have.status(401);\r",
+                  "pm.test(\"Response time is less than 200ms\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "});\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"age\": 84\r\n}"
+            },
+            "url": {
+              "raw": "{{API_URL}}/form?id=eq.{{NAMEUSERPATCH}}",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "form"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "eq.{{NAMEUSERPATCH}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PATCH edit empty name.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400\", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "pm.test(\"Response time is less than 200ms\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "});\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{PASSWORD}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "apikey",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": ***\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{API_URL}}/form?id=eq.{{NAMEUSERPATCH}}",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "form"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "eq.{{NAMEUSERPATCH}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PATCH edit empty subject.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400\", function () {\r",
+                  "pm.test(\"Response time is less than 200ms\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "});\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{PASSWORD}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "apikey",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"subject\": ***\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{API_URL}}/form?id=eq.{{NAMEUSERPATCH}}",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "form"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "eq.{{NAMEUSERPATCH}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PATCH edit empty age.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400\", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "pm.test(\"Response time is less than 200ms\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "});\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{PASSWORD}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "apikey",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"age\": -84\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{API_URL}}/form?id=eq.{{NAMEUSERPATCH}}",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "form"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "eq.{{NAMEUSERPATCH}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PATCH edit empty email.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400\", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "pm.test(\"Response time is less than 200ms\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "});\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{PASSWORD}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "apikey",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": ariatest@test.com\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{API_URL}}/form?id=eq.{{NAMEUSERPATCH}}",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "form"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "eq.{{NAMEUSERPATCH}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PATCH edit invalid age (under 18).",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400\", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "pm.test(\"Response time is less than 200ms\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+                  "});\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{PASSWORD}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "apikey",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"age\": 9\r\n}"
+            },
+            "url": {
+              "raw": "{{API_URL}}/form?id=eq.{{NAMEUSERPATCH}}",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "form"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "eq.{{NAMEUSERPATCH}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PATCH restore all original values ​​(name, subject, age, email).",
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{PASSWORD}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "apikey",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Maria\",\r\n  \"email\": \"maria@yahoo.com\",\r\n  \"subject\": \"other\",\r\n  \"age\": 25,\r\n  \"message\": \"mensaje de prueba\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{API_URL}}/form?id=eq.{{NAMEUSERPATCH}}",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "form"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "eq.{{NAMEUSERPATCH}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "POST FORM",
+      "item": [
+        {
+          "name": "POST with all required and optional fields valid (name apitest).",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 201\", function () {\r",
+                  "    pm.response.to.have.status(201);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{PASSWORD}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "apikey",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Apitest\",\r\n  \"email\": \"apitest@gmail.com\",\r\n  \"subject\": \"other\",\r\n  \"age\": 24,\r\n  \"message\": \"Primer usuario de prueba\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{API_URL}}/form",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "form"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST with only required fields, without name or age (name apitestoptional).",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 201\", function () {\r",
+                  "    pm.response.to.have.status(201);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{PASSWORD}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "apikey",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\":\"apitestoptional\",\r\n  \"email\": \"apitestoptional@gmail.com\",\r\n  \"subject\": \"other\",\r\n  \"message\": \"Segundo usuario de prueba\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{API_URL}}/form",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "form"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST without authentication.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 401\", function () {\r",
+                  "    pm.response.to.have.status(401);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Apitest\",\r\n  \"email\": \"apitest@gmail.com\",\r\n  \"subject\": \"other\",\r\n  \"age\": 24,\r\n  \"message\": \"Primer usuario de prueba\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{API_URL}}/form",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "form"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST without required email field.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400\", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{PASSWORD}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "apikey",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Test2\",\r\n  \"subject\": \"other\",\r\n  \"age\": 24,\r\n  \"message\": \"Tercer usuario de prueba\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{API_URL}}/form",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "form"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST without required subject field.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400\", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{PASSWORD}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "apikey",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Test2\",\r\n  \"email\": \"apitest@gmail.com\",\r\n  \"age\": 24,\r\n  \"message\": \"Tercer usuario de prueba\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{API_URL}}/form",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "form"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST without required message field.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400\", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{PASSWORD}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "apikey",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Apitest\",\r\n  \"email\": \"apitest@gmail.com\",\r\n  \"subject\": \"other\",\r\n  \"age\": 24,\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{API_URL}}/form",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "form"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "DELETE FORM",
+      "item": [
+        {
+          "name": "DELETE by name apitest.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 204\", function () {\r",
+                  "    pm.response.to.have.status(204);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{PASSWORD}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "apikey",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Apitest\",\r\n  \"email\": \"apitest@gmail.com\",\r\n  \"subject\": \"other\",\r\n  \"age\": 24,\r\n}"
+            },
+            "url": {
+              "raw": "{{API_URL}}/form?name=eq.Apitest",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "form"
+              ],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "eq.Apitest"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE by email apitestoptional.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 204\", function () {\r",
+                  "    pm.response.to.have.status(204);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{PASSWORD}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "apikey",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Apitest\",\r\n  \"email\": \"apitest@gmail.com\",\r\n  \"subject\": \"other\",\r\n  \"age\": 24,\r\n}"
+            },
+            "url": {
+              "raw": "{{API_URL}}/form?name=eq.apitestoptional",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "form"
+              ],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "eq.apitestoptional"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE without authentication.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 401\", function () {\r",
+                  "    pm.response.to.have.status(401);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{API_URL}}/form?name=eq.Apitest",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "form"
+              ],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "eq.Apitest"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE by empty email.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400\", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{PASSWORD}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "apikey",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{API_URL}}/form?email=",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "form"
+              ],
+              "query": [
+                {
+                  "key": "email",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE for empty subject.",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400\", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{PASSWORD}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "apikey",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{API_URL}}/form?subject=",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "form"
+              ],
+              "query": [
+                {
+                  "key": "subject",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE due to invalid age (text value).",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 400\", function () {\r",
+                  "    pm.response.to.have.status(400);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "value",
+                  "value": "{{PASSWORD}}",
+                  "type": "string"
+                },
+                {
+                  "key": "key",
+                  "value": "apikey",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{API_URL}}/form?age=eq.Test",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "form"
+              ],
+              "query": [
+                {
+                  "key": "age",
+                  "value": "eq.Test"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "value",
+        "value": "{{PASSWORD}}",
+        "type": "string"
+      },
+      {
+        "key": "key",
+        "value": "apikey",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ]
+}
